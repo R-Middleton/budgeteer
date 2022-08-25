@@ -1,9 +1,12 @@
-import './App.css';
+import Content from './components/content';
+import Sidebar from './components/sidebar';
+import '@fontsource/roboto';
 
 function App() {
   return (
-    <div className='container'>
-      <p className='text text-4xl font-bold text-teal-900'>Hello World</p>
+    <div className='grid grid-areas-appLayout font-sans grid-cols-appLayout grid-rows-appLayout h-screen'>
+      <Sidebar />
+      <Content />
     </div>
   );
 }

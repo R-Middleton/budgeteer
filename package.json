@@ -10,11 +10,13 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@fontsource/roboto": "^4.5.8",
     "@tauri-apps/api": "^1.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@savvywombat/tailwindcss-grid-areas": "^2.1.0",
     "@tauri-apps/cli": "^1.0.5",
     "@types/node": "^18.7.10",
     "@types/react": "^18.0.15",
