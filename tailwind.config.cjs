@@ -5,12 +5,15 @@ module.exports = {
     extend: {
       gridTemplateAreas: {
         appLayout: ['sidebar content'],
+        budgetLayout: ['header header', 'table inspector'],
       },
       gridTemplateColumns: {
         appLayout: '250px 1fr',
+        budgetLayout: '2fr 1fr',
       },
       gridTemplateRows: {
         appLayout: '1fr',
+        budgetLayout: '5.5rem 1fr',
       },
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],

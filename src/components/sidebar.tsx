@@ -4,15 +4,14 @@ const Sidebar = () => {
   return (
     <div className='flex flex-col p-4 text-white grid-in-sidebar bg-sky-800'>
       <h1 className='ml-2 text-slate-100 text-xl '>Budgeteer</h1>
-      <div className='btn mt-2 bg-cyan-600 justify-start'>
+      <div className='btn border-none mt-2 bg-sky-600 justify-start'>
         <h2 className='normal-case flex items-center gap-2'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
             viewBox='0 0 24 24'
             strokeWidth={1.5}
-            stroke='currentColor'
-            className='w-6 h-6'
+            className='w-6 h-6 stroke-slate-100'
           >
             <path
               strokeLinecap='round'
