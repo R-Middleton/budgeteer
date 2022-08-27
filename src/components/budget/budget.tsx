@@ -1,6 +1,6 @@
-import BudgetHeader from './budgetHeader';
-import BudgetTable from './budgetTable';
-import BudgetInspector from './budgetInspector';
+import BudgetHeader from './header/budgetHeader';
+import BudgetTable from './table/budgetTable';
+import BudgetInspector from './inspector/budgetInspector';
 
 const Budget = () => {
   return (

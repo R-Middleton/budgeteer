@@ -1,11 +1,11 @@
-import cashLogo from '../assets/cash.svg';
-
 const Sidebar = () => {
   return (
     <div className='flex flex-col p-4 text-white grid-in-sidebar bg-sky-800'>
-      <h1 className='ml-2 text-slate-100 text-xl '>Budgeteer</h1>
+      <h1 className='ml-2 font-sans font-bold text-slate-100 text-xl '>
+        Budgeteer
+      </h1>
       <div className='btn border-none mt-2 bg-sky-600 justify-start'>
-        <h2 className='normal-case flex items-center gap-2'>
+        <div className='normal-case flex items-center gap-2'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -20,10 +20,10 @@ const Sidebar = () => {
             />
           </svg>
           <h2 className='text-slate-100'>Budget</h2>
-        </h2>
+        </div>
       </div>
       <div className='btn mt-1 border-none btn-outline justify-start'>
-        <h2 className='normal-case flex items-center gap-2'>
+        <div className='normal-case flex items-center gap-2'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -39,10 +39,10 @@ const Sidebar = () => {
           </svg>
 
           <h2 className='text-slate-300'>Reports</h2>
-        </h2>
+        </div>
       </div>
       <div className='btn mt-1 border-none btn-outline justify-start'>
-        <h2 className='normal-case flex items-center gap-2'>
+        <div className='normal-case flex items-center gap-2'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -58,7 +58,7 @@ const Sidebar = () => {
           </svg>
 
           <h2 className='text-slate-300'>All Accounts</h2>
-        </h2>
+        </div>
       </div>
       <details open className='pt-6 appearance-none'>
         <summary className='px-2 text-xs text-slate-200 flex'>

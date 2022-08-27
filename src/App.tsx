@@ -1,5 +1,5 @@
-import Budget from './components/budget';
-import Sidebar from './components/sidebar';
+import Budget from './components/budget/budget';
+import Sidebar from './components/sidebar/sidebar';
 import '@fontsource/roboto';
 
 function App() {
