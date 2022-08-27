@@ -49,6 +49,9 @@ const HeaderCalendar = () => {
           />
         </svg>
       </button>
+      <button className='btn btn-sm btn-outline btn-ghost normal-case text-sky-700 border-slate-400 ml-4 hover:bg-sky-700 hover:text-slate-100'>
+        Today
+      </button>
     </div>
   );
 };
