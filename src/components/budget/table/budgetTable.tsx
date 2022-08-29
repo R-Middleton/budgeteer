@@ -1,9 +1,24 @@
 const BudgetTable = () => {
   return (
-    <div className='bg-slate-50 grid-in-table flex flex-col text-black'>
-      <div>budget toolbar</div>
-      <div>budget table header</div>
-      <div>budget table</div>
+    <div className='overflow-x-auto'>
+      <table className='table table-compact w-full'>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Assigned</th>
+            <th>Activity</th>
+            <th>Available</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Rent</td>
+            <td>£0.00</td>
+            <td>£0.00</td>
+            <td>£0.00</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };
