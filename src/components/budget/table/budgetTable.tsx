@@ -10,28 +10,36 @@ import {
 
 type Category = {
   categoryName: string;
+  assigned?: number;
+  activity?: number;
+  available?: number;
   subRows?: Category[];
 };
 
-type SingleCategory = {
-  singleCategoryName: string;
-  assigned: number;
-};
-
 const BudgetTable = () => {
-  const [expanded, setExpanded] = React.useState<ExpandedState>({});
+  const [expanded, setExpanded] = React.useState<ExpandedState>(true);
   const defaultData: Category[] = [
     {
       categoryName: 'Bills',
-      subRows: [{ categoryName: 'Rent' }],
+      subRows: [
+        { categoryName: 'Rent', assigned: 550, activity: 550, available: 0 },
+        {
+          categoryName: 'Gas/Electricits',
+          assigned: 50,
+          activity: 0,
+          available: 50,
+        },
+        { categoryName: 'Internet', assigned: 45, activity: 0, available: 50 },
+      ],
     },
     {
       categoryName: 'Frequent',
-      subRows: [{ categoryName: 'Fuel' }],
+      subRows: [
+        { categoryName: 'Fuel', assigned: 50, activity: 0, available: 50 },
+      ],
     },
     {
       categoryName: 'Savings',
-      subRows: [{ categoryName: 'Holiday' }],
     },
   ];
   const [data, setData] = useState(defaultData);
@@ -41,7 +49,7 @@ const BudgetTable = () => {
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 20 20'
       fill='currentColor'
-      className='w-5 h-5'
+      className='w-3 h-3'
     >
       <path
         fillRule='evenodd'
@@ -56,7 +64,7 @@ const BudgetTable = () => {
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 20 20'
       fill='currentColor'
-      className='w-5 h-5'
+      className='w-3 h-4'
     >
       <path
         fillRule='evenodd'
@@ -76,6 +84,7 @@ const BudgetTable = () => {
               {...{
                 onClick: table.getToggleAllRowsExpandedHandler(),
               }}
+              className=''
             >
               {table.getIsAllRowsExpanded() ? chevronDown : chevronRight}
             </button>{' '}
@@ -102,6 +111,20 @@ const BudgetTable = () => {
           </div>
         ),
       },
+      {
+        header: 'info',
+        columns: [
+          {
+            accessorKey: 'assigned',
+          },
+          {
+            accessorKey: 'activity',
+          },
+          {
+            accessorKey: 'available',
+          },
+        ],
+      },
     ],
     []
   );
@@ -120,37 +143,44 @@ const BudgetTable = () => {
 
   return (
     <div>
-      <table className='table w-full'>
-        <thead>
+      <table className='table table-compact w-full'>
+        <thead className=''>
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
+            <tr key={headerGroup.id} className=''>
               {headerGroup.headers.map((header) => {
-                return (
-                  <th key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                  </th>
-                );
+                if (header.column.id !== 'info' && !header.isPlaceholder) {
+                  return (
+                    <th
+                      key={header.id}
+                      className='bg-white font-extralight text-xs'
+                    >
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                    </th>
+                  );
+                }
               })}
             </tr>
           ))}
         </thead>
         <tbody>
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
+            <tr key={row.id} className={row.depth === 0 ? '' : ''}>
               {row.getVisibleCells().map((cell) => {
                 return (
-                  <td key={cell.id}>
+                  <td
+                    key={cell.id}
+                    className={row.depth === 0 ? 'font-bold bg-slate-100' : ''}
+                  >
                     <>
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
                       )}
-                      {console.log(cell.getContext())}
                     </>
                   </td>
                 );
